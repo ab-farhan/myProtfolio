@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/abfarhan/public_html/Github_SubDomain
+    - /bin/cp * $DEPLOYPATH
+    
