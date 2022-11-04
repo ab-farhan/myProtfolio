@@ -19,5 +19,5 @@ Route::get('/', function () {
 
 
 Route::get('farhanLogin',function(){
-    return view('loginUI');
+    return view('loginUI');  
 });
