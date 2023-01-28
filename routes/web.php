@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('farhanLogin',function(){
-    return view('loginUI');  
+Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group( function () {
+    Route::get('/',[AdminController::class,'index']);
 });
+
+require __DIR__.'/auth.php';
