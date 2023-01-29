@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BasicSettingsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group( function () {
-    Route::get('/',[AdminController::class,'index']);
+Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group(function () {
+    Route::get('/', [AdminController::class, 'index']);
+    Route::get('/basicsettings', [BasicSettingsController::class, 'index'])->name('.basicsettings');
+    Route::post('{basicSettings}/update-basicsettings', [BasicSettingsController::class, 'update'])->name('.update.basicsettings');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

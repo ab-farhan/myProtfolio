@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Raleway:300,400,500,600,700|Rubik:400,500,700,900&display=swap');
 
+:root {
+    --baseColor: #3a3973;
+    --secondaryColor: #fe4f6c;
+    --darkColor:#000;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +35,7 @@ img {
 a,
 a:hover {
     text-decoration: none;
-    color: #000;
+    color: var(--darkColor);
 }
 
 ol,
@@ -67,7 +73,7 @@ h3 {
     font-size: 45px;
     font-weight: 700;
     text-transform: uppercase;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 h4 {
@@ -75,7 +81,7 @@ h4 {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     text-transform: capitalize;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 h5 {
@@ -83,7 +89,7 @@ h5 {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-transform: capitalize;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 p {
@@ -111,7 +117,7 @@ span {
 
 .section_header .section_header_content p {
     font-size: 18px;
-    color: #3a3973;
+    color: var(--baseColor);
     padding: 0px 200px;
     padding-top: 15px;
     line-height: 1.4;
@@ -122,7 +128,7 @@ span {
 
 .section_header .section_header_shadow span {
     position: absolute;
-    color: #fe4f6c;
+    color: var(--secondaryColor);
     opacity: .25;
     display: inline-block;
     top: -70px;
@@ -176,8 +182,8 @@ span {
 }
 
 .btn1 .default-side {
-    background: #fe4f6c;
-    border: 2px solid #3a3973;
+    background: var(--secondaryColor);
+    border: 2px solid var(--baseColor);
     color: #ffffff;
     -o-transform: translateZ(25px);
     -webkit-transform: translateZ(25px);
@@ -187,9 +193,9 @@ span {
 }
 
 .btn1 .hover-side {
-    background: #3a3973;
+    background: var(--baseColor);
     color: #ffffff;
-    border: 2px solid #fe4f6c;
+    border: 2px solid var(--secondaryColor);
     -o-transform: rotateX(90deg) translateZ(25px);
     -webkit-transform: rotateX(90deg) translateZ(25px);
     -moz-transform: rotateX(90deg) translateZ(25px);
@@ -207,7 +213,7 @@ span {
 
 /* ------------------------ header_part start here ------------------------  */
 .header_part .navbar {
-    background: #3a3973;
+    background: var(--baseColor);
 }
 
 .header_part .navbar a.navbar-brand {
@@ -237,11 +243,11 @@ span {
 }
 
 .header_part .navbar .navbar-nav .nav-item .nav-link.active {
-    color: #fe4f6c;
+    color: var(--secondaryColor);
 }
 
 .header_part .navbar .navbar-nav .nav-item .nav-link:hover {
-    color: #fe4f6c;
+    color: var(--secondaryColor);
 }
 
 .header_part .navbar .social_link ul {
@@ -269,7 +275,7 @@ span {
 }
 
 .header_part .navbar .social_link ul li:hover i {
-    color: #fe4f6c;
+    color: var(--secondaryColor);
     -o-transform: rotateY(360deg);
     -webkit-transform: rotateY(360deg);
     -moz-transform: rotateY(360deg);
@@ -292,7 +298,7 @@ span {
 }
 
 .fix nav a.navbar-brand {
-    color: #fe4f6c !important;
+    color: var(--secondaryColor) !important;
 }
 
 .fix nav .navbar-nav {
@@ -300,16 +306,16 @@ span {
 }
 
 .fix nav .navbar-nav .nav-link {
-    color: #3a3973 !important;
+    color: var(--baseColor) !important;
 }
 
 .fix nav .navbar-nav .nav-link.active {
-    background: #fe4f6c !important;
+    background: var(--secondaryColor) !important;
     color: #ffffff !important;
 }
 
 .fix nav .social_link li i {
-    color: #3a3973 !important;
+    color: var(--baseColor) !important;
     padding: 0 5px !important;
 }
 
@@ -318,7 +324,7 @@ span {
 }
 
 .fix nav .social_link li:hover i {
-    color: #fe4f6c !important;
+    color: var(--secondaryColor) !important;
 }
 
 /* ------------------------ header_part end here ------------------------  */
@@ -332,14 +338,14 @@ span {
 .miobile_menu .navbar-brand {
     font-size: 40px;
     font-family: 'Dancing Script', cursive;
-    color: #fe4f6c;
+    color: var(--secondaryColor);
     line-height: 1;
     padding: 5px 0;
 }
 
 .miobile_menu .openbtn {
     font-size: 35px;
-    color: #3a3973;
+    color: var(--baseColor);
     cursor: pointer;
 }
 
@@ -379,7 +385,7 @@ span {
     left: 0;
     height: 3px;
     width: 100%;
-    background: #fe4f6c;
+    background: var(--secondaryColor);
     -o-transition: all linear 0.3s;
     -moz-transition: all linear 0.3s;
     -ms-transition: all linear 0.3s;
@@ -405,7 +411,7 @@ span {
 /* ==================================mobile_menu part start herev============================== */
 /* ------------------------ banner_part start here  ------------------------ */
 .banner_part {
-    background: #3a3973;
+    background: var(--baseColor);
     position: relative;
     padding: 140px 0;
 }
@@ -428,7 +434,7 @@ span {
 }
 
 .banner_part .banner_cont h4 span.typed-cursor {
-    color: #fe4f6c;
+    color: var(--secondaryColor);
 }
 
 .banner_part .banner_cont a {
@@ -448,7 +454,7 @@ span {
     left: 0;
     bottom: -8px;
     fill: #ffffff;
-    background: #3a3973;
+    background: var(--baseColor);
 }
 
 /* ------------------------ banner_part end here ------------------------  */
@@ -466,12 +472,12 @@ span {
     width: 100%;
     z-index: -1;
     opacity: .7;
-    border: 10px solid #fe4f6c;
+    border: 10px solid var(--secondaryColor);
 }
 
 .about_part .about_content h2 {
     font-family: 'Dancing Script', cursive;
-    color: #fe4f6c;
+    color: var(--secondaryColor);
     font-size: 65px;
     font-weight: bold;
     text-transform: none;
@@ -482,7 +488,7 @@ span {
 }
 
 .about_part .about_content .about_info b {
-    color: #fe4f6c;
+    color: var(--secondaryColor);
     font-size: 16px;
     line-height: 2;
 }
@@ -491,7 +497,7 @@ span {
 .about_part .about_content .about_info span {
     font-family: 'Rubik', sans-serif;
     font-size: 16px;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 /* ------------------------ about_part end here ------------------------  */
@@ -509,11 +515,11 @@ span {
 }
 
 .skill_part .card {
-    border-color: #3a3973;
+    border-color: var(--baseColor);
     transition: ease .3s;
     height: 250px;
     overflow: hidden;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 
@@ -524,7 +530,7 @@ span {
 .skill_part .card:hover {
     border: 0;
     color: #fff;
-    background: #fe4f6c;
+    background: var(--secondaryColor);
 
 }
 
@@ -567,14 +573,14 @@ span {
 .skill_part .progress_item .progress_bar {
     width: 100%;
     height: 6px;
-    background: #3a3973;
+    background: var(--baseColor);
     border-radius: 3px;
     overflow: hidden;
 }
 
 .skill_part .progress_item .progress_bar .progress_bar_inner {
     height: 100%;
-    background: #fe4f6c;
+    background: var(--secondaryColor);
 }
 
 .skill_part .progress_item .progress_bar .progress_bar_inner.html {
@@ -679,7 +685,7 @@ span {
 .service_part .service_item .service_icon i {
     font-size: 60px;
     line-height: 1;
-    color: #fe4f6c;
+    color: var(--secondaryColor);
 }
 
 .service_part .service_item .service_icon i.fa-mobile-android {
@@ -717,7 +723,7 @@ span {
     right: 0;
     height: 100%;
     width: 0%;
-    background: #3a3973;
+    background: var(--baseColor);
     border-radius: 5px;
     -o-transition: all linear 0.3s;
     -moz-transition: all linear 0.3s;
@@ -755,12 +761,12 @@ span {
     cursor: pointer;
     text-transform: capitalize;
     font-weight: 500;
-    color: #3a3973;
+    color: var(--baseColor);
     font-size: 16px;
 }
 
 .protfolio_part .profolio_menu ul li.active {
-    background: #fe4f6c;
+    background: var(--secondaryColor);
     color: #ffffff;
 }
 
@@ -859,13 +865,13 @@ span {
     font-size: 22px;
     padding: 10px 0;
     padding-right: 15px;
-    color: #fe4f6c;
+    color: var(--secondaryColor);
 }
 
 .contact_part .contact_info a,
 .contact_part .contact_info span {
     font-size: 18px;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 .contact_part .contact_info .social_link {
@@ -887,14 +893,14 @@ span {
 }
 
 .contact_part .contact_info .social_link ul li i {
-    color: #3a3973;
+    color: var(--baseColor);
     padding: 0;
     font-size: 25px;
     line-height: 40px;
 }
 
 .contact_part .contact_info .social_link ul li:hover {
-    box-shadow: 0 0 3px #fe4f6c;
+    box-shadow: 0 0 3px var(--secondaryColor);
 }
 
 .contact_part .contact_form label {
@@ -910,7 +916,7 @@ span {
 
 .contact_part .contact_form .form-control {
     border: 1px solid #6f8ba4;
-    color: #3a3973;
+    color: var(--baseColor);
 }
 
 .contact_part .contact_form .btn1 {
@@ -925,7 +931,7 @@ span {
 /* ------------------------ footer_part start here ------------------------ */
 .footer_part {
     padding: 30px 0;
-    background: #3a3973;
+    background: var(--baseColor);
 }
 
 .footer_part p {

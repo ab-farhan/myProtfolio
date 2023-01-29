@@ -1,23 +1,27 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
-      <div class="copyright text-center my-auto">
-        <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
-          <b><a href="#" target="_blank">abfarhan</a></b>
-        </span>
-      </div>
+        <div class="copyright text-center my-auto">
+            <span>copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
+                </script> - developed by
+                <b><a href="#" target="_blank">abfarhan</a></b>
+            </span>
+        </div>
     </div>
-  </footer>
+</footer>
 
 </div>
 </div>
 <!-- Scrollto to top -->
 <a class="scroll-to-top rounded" href="#page-top">
-<i class="fas fa-angle-up"></i>
+    <i class="fas fa-angle-up"></i>
 </a>
 <script src="{{ asset('backend') }}/vendor/jquery/jquery.min.js"></script>
 <script src="{{ asset('backend') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('backend') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="{{ asset('backend') }}/js/ruang-admin.min.js"></script>
+<script src="{{ asset('backend') }}/js/custom.js"></script>
 </body>
 
 </html>
