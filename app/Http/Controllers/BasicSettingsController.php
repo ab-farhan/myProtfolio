@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BasicSettings;
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\UploadFile;
 use Illuminate\Http\Request;
 
 class BasicSettingsController extends Controller
@@ -20,11 +21,6 @@ class BasicSettingsController extends Controller
     }
 
 
-
-
-
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -34,9 +30,25 @@ class BasicSettingsController extends Controller
      */
     public function update(Request $request, BasicSettings $basicSettings)
     {
-        $basicSettings->update([
-            '' => ''
+        // dd($request->all());
+        $logo= $basicSettings->logo;
+        $favicon = $basicSettings->favicon;
+        // dd($basicSettings->logo,$basicSettings->favicon);
+        if($request->logo){
+            $logoPath= 'images/logo/';
+            $logo = UploadFile::update($logoPath, $request->logo,$logo);
+        }
+       if($request->favicon){
+        $faviconPath= 'images/favicon/';
+        $favicon = UploadFile::update($faviconPath, $request->favicon,$favicon);
+       }
+        
+        $basicSettings->update($request->except('favicon','logo')+[
+            'logo'=>$logo,
+            'favicon'=>$favicon,
         ]);
+        session()->flash('success',"Successfully update basic settings information.");
+        return back();
     }
 
     /**

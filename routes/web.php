@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasicSettingsController;
+use App\Http\Controllers\MenuBuilderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,9 @@ Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group(func
     Route::get('/', [AdminController::class, 'index']);
     Route::get('/basicsettings', [BasicSettingsController::class, 'index'])->name('.basicsettings');
     Route::post('{basicSettings}/update-basicsettings', [BasicSettingsController::class, 'update'])->name('.update.basicsettings');
+
+    Route::get('/menu-builder', [MenuBuilderController::class, 'index'])->name('.menuBuilder');
+    Route::post('/menu-builder/update', [MenuBuilderController::class, 'update'])->name('.menuBuilder.update');
 });
 
 require __DIR__ . '/auth.php';

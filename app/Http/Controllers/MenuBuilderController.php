@@ -14,72 +14,28 @@ class MenuBuilderController extends Controller
      */
     public function index()
     {
-        //
+        $menu = MenuBuilder::first();
+        $prevMenu = '';
+        if (!empty($menu)) {
+            $data['prevMenu'] = $menu->menus;
+            
+        }
+        return view('layouts.backend.menu_builder.index',compact('menu','prevMenu'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MenuBuilder  $menuBuilder
-     * @return \Illuminate\Http\Response
-     */
-    public function show(MenuBuilder $menuBuilder)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MenuBuilder  $menuBuilder
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(MenuBuilder $menuBuilder)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MenuBuilder  $menuBuilder
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, MenuBuilder $menuBuilder)
     {
-        //
+        $prevMenu = MenuBuilder::first();
+        // $prevMenu->delete();
+
+        $prevMenu->update([
+            'menus'=>$request->str
+         ]);
+       
+
+        return response()->json(['status' => 'success', 'message' => 'Menu updated successfully!']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MenuBuilder  $menuBuilder
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MenuBuilder $menuBuilder)
-    {
-        //
-    }
+
 }

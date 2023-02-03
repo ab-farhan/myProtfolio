@@ -8,7 +8,7 @@
     <meta name="keywords" content="ab, AB, abfarhan, ab-farhan, farhan, Farhan, ab farhan">
     <meta name="author" content="Abu Bokkor Farhan">
     <title>AB Farhan || Protfolio</title>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon/'.$basicSettings->favicon)}}">
     <link rel="stylesheet" href="{{asset('/')}}css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('/')}}css/all.css">
     <link rel="stylesheet" href="{{asset('/')}}css/animate.css">

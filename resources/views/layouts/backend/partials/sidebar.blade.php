@@ -18,6 +18,12 @@
             <span>Basic Settings</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('dashboard.menuBuilder') }}">
+            <i class="fas fa-fw fa-th"></i>
+            <span>Menu Builder</span>
+        </a>
+    </li>
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
             aria-expanded="true" aria-controls="collapseBootstrap">

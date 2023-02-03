@@ -8,12 +8,11 @@
                     <h4 class="m-0 font-weight-bold text-primary">Update Basic Information</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('dashboard.update.basicsettings', $basicsettings->id) }}" method="POST">
-
-
+                    <form action="{{ route('dashboard.update.basicsettings', $basicsettings->id) }}" method="POST" enctype="multipart/form-data" >
+                         @csrf
                         <div class="thumb-preview">
                             @if (!empty($basicsettings->favicon))
-                                <img src="{{ asset('assets/img/' . $basicsettings->favicon) }}" alt="logo"
+                                <img src="{{ asset('images/favicon/' . $basicsettings->favicon) }}" alt="logo"
                                     class="uploaded-img">
                             @else
                                 <img src="{{ asset('backend/img/noimage.jpg') }}" alt="..." class="uploaded-img">
@@ -21,14 +20,14 @@
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input img-input" id="customFile">
+                                <input type="file" class="custom-file-input img-input" id="customFile" name="favicon" >
                                 <label class="custom-file-label" for="customFile">Choose favicon</label>
                             </div>
                         </div>
 
                         <div class="thumb-preview">
                             @if (!empty($basicsettings->logo))
-                                <img src="{{ asset('assets/img/' . $basicsettings->logo) }}" alt="logo"
+                                <img src="{{ asset('images/logo/' . $basicsettings->logo) }}" alt="logo"
                                     class="uploaded-img2">
                             @else
                                 <img src="{{ asset('backend/img/noimage.jpg') }}" alt="..." class="uploaded-img2">
@@ -36,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input img-input2" id="customFile">
+                                <input type="file" class="custom-file-input img-input2" id="customFile" name="logo">
                                 <label class="custom-file-label" for="customFile">Choose logo</label>
                             </div>
                         </div>
@@ -73,9 +72,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail12">Meta Description </label>
                             <textarea class="form-control" name="meta_description" id="exampleInputEmail12" rows="3"
-                                placeholder="Enter meta description">
-                              {{ $basicsettings->meta_description }}
-                            </textarea>
+                                placeholder="Enter meta description">{{ $basicsettings->meta_description }}</textarea>
 
                         </div>
                         <button type="submit" class="btn btn-primary mx-auto">Update</button>
