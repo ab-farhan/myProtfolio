@@ -17,7 +17,7 @@ class MenuBuilderController extends Controller
         $menu = MenuBuilder::first();
         $prevMenu = '';
         if (!empty($menu)) {
-            $data['prevMenu'] = $menu->menus;
+            $prevMenu = $menu->menus;
             
         }
         return view('layouts.backend.menu_builder.index',compact('menu','prevMenu'));

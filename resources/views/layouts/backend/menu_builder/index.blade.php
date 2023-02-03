@@ -133,10 +133,7 @@
         </div>
     </div>
 </div>
- {{-- 
-    var prevMenus = @php echo json_encode($prevMenu) @endphp;
-     var langid = {{$lang_id}};
-     var menuUpdate = "{{route('admin.menu_builder.update')}}"; --}}
+{{-- {{dd(json_encode($prevMenu))}} --}}
 @endsection
 
 @section('scripts')
