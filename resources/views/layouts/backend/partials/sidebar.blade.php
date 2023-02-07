@@ -33,13 +33,13 @@
         <div id="collapseBootstrap" class="collapse show" aria-labelledby="headingBootstrap"
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item  active" href="alerts.html">Section Heading</a>
-                <a class="collapse-item" href="buttons.html">Hero Section</a>
-                <a class="collapse-item" href="dropdowns.html">About Section</a>
-                <a class="collapse-item" href="modals.html">Skill Section</a>
-                <a class="collapse-item" href="popovers.html">Service Section</a>
-                <a class="collapse-item" href="progress-bar.html">Protfolio Section</a>
-                <a class="collapse-item" href="progress-bar.html">Contact Section</a>
+                <a class="collapse-item  active" href="{{ route('dashboard.section_heading') }}">Section Heading</a>
+                <a class="collapse-item" href="{{ route('dashboard.hero_section') }}">Hero Section</a>
+                <a class="collapse-item" href="{{ route('dashboard.about_section') }}">About Section</a>
+                <a class="collapse-item" href="{{ route('dashboard.skill_section') }}">Skill Section</a>
+                <a class="collapse-item" href="{{ route('dashboard.service_section') }}">Service Section</a>
+                <a class="collapse-item" href="{{ route('dashboard.portfolio_section') }}">Protfolio Section</a>
+                <a class="collapse-item" href="{{ route('dashboard.contact_section') }}">Contact Section</a>
             </div>
         </div>
     </li>

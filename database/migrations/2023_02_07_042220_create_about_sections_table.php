@@ -15,6 +15,7 @@ class CreateAboutSectionsTable extends Migration
     {
         Schema::create('about_sections', function (Blueprint $table) {
             $table->id();
+            $table->string('iamge')->nullable();
             $table->string('name')->nullable();
             $table->string('designation')->nullable();
             $table->json('additional_information')->nullable();

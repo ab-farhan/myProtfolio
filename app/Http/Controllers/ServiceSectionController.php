@@ -15,7 +15,7 @@ class ServiceSectionController extends Controller
      */
     public function index()
     {
-        //
+        return view('');
     }
 
     /**

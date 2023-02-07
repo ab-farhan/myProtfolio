@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HeroSection;
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\UploadFile;
 use Illuminate\Http\Request;
 
 class HeroSectionController extends Controller
@@ -15,51 +16,10 @@ class HeroSectionController extends Controller
      */
     public function index()
     {
-        //
+        $heroSection = HeroSection::first();
+        return view('layouts.backend.sections.hero', compact('heroSection'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\HeroSection  $heroSection
-     * @return \Illuminate\Http\Response
-     */
-    public function show(HeroSection $heroSection)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\HeroSection  $heroSection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(HeroSection $heroSection)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +30,21 @@ class HeroSectionController extends Controller
      */
     public function update(Request $request, HeroSection $heroSection)
     {
-        //
+        
+        $request->validate([
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg',
+        ]);
+
+        $image = $heroSection->image;
+        if ($request->image) {
+            $imagePath = 'images/heroImage/';
+            $image = UploadFile::update($imagePath, $request->image, $image);
+        }
+
+        $heroSection->update($request->except('_token', 'image') + [
+            'image' => $image
+        ]);
+        return back()->with('success', 'Successfully update hero section informations.');
     }
 
     /**

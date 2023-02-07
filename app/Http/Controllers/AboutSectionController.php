@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutSection;
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\UploadFile;
 use Illuminate\Http\Request;
 
 class AboutSectionController extends Controller
@@ -15,51 +16,10 @@ class AboutSectionController extends Controller
      */
     public function index()
     {
-        //
+        $aboutSection = AboutSection::first();
+        return view('layouts.backend.sections.about', compact('aboutSection'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\AboutSection  $aboutSection
-     * @return \Illuminate\Http\Response
-     */
-    public function show(AboutSection $aboutSection)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\AboutSection  $aboutSection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AboutSection $aboutSection)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +30,31 @@ class AboutSectionController extends Controller
      */
     public function update(Request $request, AboutSection $aboutSection)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg',
+            'cv' => 'nullable|mimes:pdf'
+        ]);
+
+        $image = $aboutSection->image;
+        $cv = $aboutSection->cv;
+
+        if ($request->image) {
+            $imagePath = 'images/about/';
+            $image = UploadFile::update($imagePath, $request->image, $image);
+        }
+
+        if ($request->cv) {
+            $cvPath = 'images/cv/';
+            $image = UploadFile::update($cvPath, $request->cv, $cv);
+        }
+
+        $aboutSection->update($request->except('_token', 'image', 'cv') + [
+            'image' => $image,
+            'cv' => $cv
+        ]);
+
+        return back()->with('success', 'Successfully update abouts information');
     }
 
     /**

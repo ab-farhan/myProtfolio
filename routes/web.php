@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BasicSettingsController;
 use App\Http\Controllers\ContactSectionController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\MenuBuilderController;
 use App\Http\Controllers\ProtfolioSectionController;
 use App\Http\Controllers\SectionHeadingController;
@@ -34,13 +35,21 @@ Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group(func
 
     Route::get('/menu-builder', [MenuBuilderController::class, 'index'])->name('.menuBuilder');
     Route::post('/menu-builder/update', [MenuBuilderController::class, 'update'])->name('.menuBuilder.update');
-    Route::get('/section-headings', [SectionHeadingController::class, 'index'])->name('section_heading');
-    Route::get('/about-section', [AboutSectionController::class, 'index'])->name('about_section');
-    Route::get('/skill-section', [SkillSectionController::class, 'index'])->name('skill_section');
-    Route::get('/service-section', [ServiceSectionController::class, 'index'])->name('service_section');
-    Route::get('/portfolio-section', [ProtfolioSectionController::class, 'index'])->name('portfolio_section');
-    Route::get('/contact-section', [ContactSectionController::class, 'index'])->name('contact_section');
-    Route::get('/footer', [FooterController::class, 'index'])->name('footer');
+
+    Route::get('/section-headings', [SectionHeadingController::class, 'index'])->name('.section_heading');
+    Route::post('/section-headings/{sectionHeading}/update', [SectionHeadingController::class, 'update'])->name('.section_heading.update');
+
+    Route::get('/hero-section', [HeroSectionController::class, 'index'])->name('.hero_section');
+    Route::post('/hero-section/{heroSection}/update', [HeroSectionController::class, 'update'])->name('.hero_section.update');
+
+    Route::get('/about-section', [AboutSectionController::class, 'index'])->name('.about_section');
+    Route::post('/about-section/{aboutSection}/update', [AboutSectionController::class, 'update'])->name('.about_section.update');
+
+    Route::get('/skill-section', [SkillSectionController::class, 'index'])->name('.skill_section');
+    Route::get('/service-section', [ServiceSectionController::class, 'index'])->name('.service_section');
+    Route::get('/portfolio-section', [ProtfolioSectionController::class, 'index'])->name('.portfolio_section');
+    Route::get('/contact-section', [ContactSectionController::class, 'index'])->name('.contact_section');
+    Route::get('/footer', [FooterController::class, 'index'])->name('.footer');
 });
 
 require __DIR__ . '/auth.php';

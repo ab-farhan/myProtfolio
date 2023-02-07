@@ -15,51 +15,10 @@ class SectionHeadingController extends Controller
      */
     public function index()
     {
-        //
+        $sectionHeading = SectionHeading::first();
+        return view('layouts.backend.sections.headings', compact('sectionHeading'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SectionHeading  $sectionHeading
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SectionHeading $sectionHeading)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SectionHeading  $sectionHeading
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SectionHeading $sectionHeading)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -70,7 +29,8 @@ class SectionHeadingController extends Controller
      */
     public function update(Request $request, SectionHeading $sectionHeading)
     {
-        //
+        $sectionHeading->update($request->except('_token'));
+        return back()->with('success', 'Successfully update sections heading.');
     }
 
     /**
