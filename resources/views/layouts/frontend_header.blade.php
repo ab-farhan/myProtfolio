@@ -8,21 +8,24 @@
     <meta name="keywords" content="ab, AB, abfarhan, ab-farhan, farhan, Farhan, ab farhan">
     <meta name="author" content="Abu Bokkor Farhan">
     <title>AB Farhan || Protfolio</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon/'.$basicSettings->favicon)}}">
-    <link rel="stylesheet" href="{{asset('/')}}css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{asset('/')}}css/all.css">
-    <link rel="stylesheet" href="{{asset('/')}}css/animate.css">
-    <link rel="stylesheet" href="{{asset('/')}}css/style.css">
-    <link rel="stylesheet" href="{{asset('/')}}css/responsive.css">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon/' . $basicSettings->favicon) }}">
+    <link rel="stylesheet" href="{{ asset('/') }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('/') }}css/all.css">
+    <link rel="stylesheet" href="{{ asset('/') }}css/animate.css">
+    <link rel="stylesheet" href="{{ asset('/') }}css/style.css">
+    <link rel="stylesheet" href="{{ asset('/') }}css/responsive.css">
 </head>
 
 <body data-spy="scroll" data-target="#nav_bar" data-offset="70">
+
     <!--	header_part  start here  -->
     <header class="header_part">
         <nav class="navbar navbar-expand-lg navbar-light" id="nav_bar">
             <div class="container">
                 <a class="navbar-brand" href="#">AB Farhan</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -49,7 +52,8 @@
 
                 <div class="social_link">
                     <ul>
-                        <li><a href="https://www.facebook.com/far.han.79677471"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.facebook.com/far.han.79677471"><i class="fab fa-facebook-f"></i></a>
+                        </li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>

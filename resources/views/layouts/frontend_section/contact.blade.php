@@ -17,7 +17,10 @@
 
             </div>
         </div> --}}
-        @include('layouts.frontend_section.common_header',['title'=>'contact','srt_description'=>'Contact with me as it suits you.'])
+        @include('layouts.frontend_section.common_header', [
+            'title' => 'contact',
+            'srt_description' => 'Contact with me as it suits you.',
+        ])
         <!--		common-header end here  -->
 
         <div class="row">
@@ -37,7 +40,8 @@
 
                     <div class="social_link clearfix">
                         <ul>
-                            <li><a href="https://www.facebook.com/far.han.79677471"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.facebook.com/far.han.79677471"><i
+                                        class="fab fa-facebook-f"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                             <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
@@ -48,20 +52,33 @@
             </div>
             <div class="col-md-6 col-lg-6 offset-lg-2 offset-xl-3">
                 <div class="contact_form">
-                    <form action="" method="POST">
+                    <form action="{{ route('contact') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Your Name <span>*</span></label>
-                            <input type="text" class="form-control" name="name" id="exampleFormControlInput1" required >
+                            <input type="text" class="form-control @error('name') 'is_invalid'@enderror"
+                                name="name" id="exampleFormControlInput1" required value="{{ old('name') }}">
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput2">Your Email Address <span>*</span></label>
-                            <input type="email" class="form-control" name="email" id="exampleFormControlInput2" required >
+                            <input type="email" class="form-control @error('email') 'is_invalid'@enderror"
+                                name="email" id="exampleFormControlInput2" required value="{{ old('email') }}">
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="Textarea1">Drop Your Message <span>*</span></label>
-                            <textarea id="Textarea1" class="form-control" name="message" rows="3" required ></textarea>
+                            <textarea id="Textarea1" class="form-control @error('message') 'is_invalid'@enderror" name="message" rows="3"
+                                required>{{ old('message') }}</textarea>
+                            @error('message')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="btn1 float-right">
                             <div class="btn-3d default-side text-uppercase">send</div>

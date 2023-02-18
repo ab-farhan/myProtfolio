@@ -5,6 +5,7 @@
             font-weight: bold;
         }
     </style>
+    <link rel="stylesheet" href="/backend/css/tag.css">
 @endsection
 @section('content')
     <div class="row">
@@ -46,7 +47,7 @@
                                 name="heading" value="{{ $heroSection->heading }}" placeholder="Enter About">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Skill Headings</label>
+                            <label for="exampleInputEmail1">Top Headings</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                 name="top_desc" value="{{ $heroSection->top_desc }}" placeholder="Enter Skill">
                         </div>
@@ -54,8 +55,10 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail12">Designation</label>
-                            <input type="text" class="form-control" id="exampleInputEmail12" aria-describedby="emailHelp"
-                                name="designation" value="{{ $heroSection->designation }}" placeholder="Enter Service">
+                            <input type="text" class="form-control" id="tag-input1" aria-describedby="emailHelp"
+                                name="designation" placeholder="Enter Service">
+
+
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail13">Btn text </label>
@@ -82,4 +85,12 @@
         </div>
 
     </div>
+@endsection
+@section('scripts')
+    <script>
+        "use strict"
+        let tag = "{{ $heroSection->designation }}";
+        var tags = tag.split(',');
+    </script>
+    <script src="{{ asset('/backend/js/tag.js') }}"></script>
 @endsection

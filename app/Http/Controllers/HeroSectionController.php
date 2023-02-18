@@ -30,7 +30,7 @@ class HeroSectionController extends Controller
      */
     public function update(Request $request, HeroSection $heroSection)
     {
-        
+
         $request->validate([
             'image' => 'nullable|mimes:jpeg,jpg,png,gif,svg',
         ]);
@@ -41,8 +41,9 @@ class HeroSectionController extends Controller
             $image = UploadFile::update($imagePath, $request->image, $image);
         }
 
-        $heroSection->update($request->except('_token', 'image') + [
-            'image' => $image
+        $heroSection->update($request->except('_token', 'image', 'designation') + [
+            'image' => $image,
+            'designation' => $request->designation
         ]);
         return back()->with('success', 'Successfully update hero section informations.');
     }

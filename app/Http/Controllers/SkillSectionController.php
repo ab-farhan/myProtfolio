@@ -15,62 +15,15 @@ class SkillSectionController extends Controller
      */
     public function index()
     {
-        return view('');
+        $skillSection = SkillSection::first();
+        return view('layouts.backend.sections.skill', compact('skillSection'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SkillSection  $skillSection
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SkillSection $skillSection)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SkillSection  $skillSection
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SkillSection $skillSection)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SkillSection  $skillSection
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, SkillSection $skillSection)
     {
-        //
+        $skillSection->update($request->except('_token'));
+        return redirect()->back()->with('success', "Successfully update skill section.");
     }
 
     /**
@@ -81,6 +34,5 @@ class SkillSectionController extends Controller
      */
     public function destroy(SkillSection $skillSection)
     {
-        //
     }
 }

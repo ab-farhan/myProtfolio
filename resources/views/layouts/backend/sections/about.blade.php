@@ -31,7 +31,7 @@
                                 <input type="file"
                                     class="custom-file-input img-input @error('image') is-invalid @enderror "
                                     id="customFile" name="image">
-                                <label class="custom-file-label" for="customFile">Choose Hero Image</label>
+                                <label class="custom-file-label" for="customFile">Choose About Image</label>
                             </div>
 
                             @error('image')
@@ -41,15 +41,15 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1"> Name</label>
+                            <label for="exampleInputEmail1"> About Title</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                name="name" value="{{ $aboutSection->name }}" placeholder="Enter About">
+                                name="name" value="{{ $aboutSection->name }}" placeholder="Enter About...">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">additional_information</label>
+                            <label for="exampleInputEmail1">Additional Information</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                 name="additional_information" value="{{ $aboutSection->additional_information }}"
-                                placeholder="Enter Skill">
+                                placeholder="information">
                         </div>
 
 

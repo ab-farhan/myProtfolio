@@ -29,6 +29,7 @@ class SectionHeadingController extends Controller
      */
     public function update(Request $request, SectionHeading $sectionHeading)
     {
+        
         $sectionHeading->update($request->except('_token'));
         return back()->with('success', 'Successfully update sections heading.');
     }
