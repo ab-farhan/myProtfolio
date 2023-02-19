@@ -22,54 +22,57 @@
 <script src="{{ asset('backend') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('backend') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
 <!-- Bootstrap Notify -->
-<script src="{{asset('backend/js/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+<script src="{{ asset('/') }}js/toastr.min.js"></script>
 <script src="{{ asset('backend') }}/js/ruang-admin.min.js"></script>
 @yield('scripts')
 <script src="{{ asset('backend') }}/js/custom.js"></script>
 
 @if (session()->has('success'))
-<script>
-  "use strict";
-  var content = {};
-
-  content.message = '{{session('success')}}';
-  content.title = 'Success';
-  content.icon = 'fa fa-bell';
-
-  $.notify(content,{
-    type: 'success',
-    placement: {
-      from: 'top',
-      align: 'right'
-    },
-    showProgressbar: true,
-    time: 1000,
-    delay: 4000,
-  });
-</script>
+    <script>
+        "use strict";
+        toastr.success("{{ session()->get('success') }}", 'Success')
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
 @endif
 
 
 @if (session()->has('warning'))
-<script>
-  "use strict";
-  var content = {};
-
-  content.message = '{{session('warning')}}';
-  content.title = 'Warning!';
-  content.icon = 'fa fa-bell';
-
-  $.notify(content,{
-    type: 'warning',
-    placement: {
-      from: 'top',
-      align: 'right'
-    },
-    showProgressbar: true,
-    time: 1000,
-    delay: 4000,
-  });
-</script>
+    <script>
+        toastr.success("{{ session()->get('warning') }}", 'Warning')
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+    </script>
 @endif
 </body>
 

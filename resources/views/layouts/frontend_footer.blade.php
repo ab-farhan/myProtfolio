@@ -18,14 +18,32 @@
  <script src="{{ asset('/') }}js/wow.min.js"></script>
  <script src="{{ asset('/') }}js/isotope.pkgd.min.js"></script>
  <script src="{{ asset('/') }}js/typed.min.js"></script>
+ <script src="{{ asset('/') }}js/toastr.min.js"></script>
  <script src="{{ asset('/') }}js/custom.js"></script>
- <script>
-     $(document.ready() {
-
-         $('.toast').toast('show');
-     });
- </script>
-
+ @if (session()->has('success'))
+     <script>
+         $(document).ready(function() {
+             toastr.success("{{ session()->get('success') }}", 'Success')
+             toastr.options = {
+                 "closeButton": true,
+                 "debug": false,
+                 "newestOnTop": true,
+                 "progressBar": true,
+                 "positionClass": "toast-top-right",
+                 "preventDuplicates": false,
+                 "onclick": null,
+                 "showDuration": "300",
+                 "hideDuration": "1000",
+                 "timeOut": "5000",
+                 "extendedTimeOut": "1000",
+                 "showEasing": "swing",
+                 "hideEasing": "linear",
+                 "showMethod": "fadeIn",
+                 "hideMethod": "fadeOut"
+             }
+         });
+     </script>
+ @endif
  </body>
 
  </html>

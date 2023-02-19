@@ -45,9 +45,9 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="ui-colors.html">
+        <a class="nav-link" href="{{ route('dashboard.openai') }}">
             <i class="fas fa-fw fa-palette"></i>
-            <span>UI Colors</span>
+            <span>Open Ai</span>
         </a>
     </li>
 

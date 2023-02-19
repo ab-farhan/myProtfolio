@@ -8,10 +8,12 @@ use App\Http\Controllers\ContactSectionController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\MenuBuilderController;
+use App\Http\Controllers\OpenAiController;
 use App\Http\Controllers\ProtfolioSectionController;
 use App\Http\Controllers\SectionHeadingController;
 use App\Http\Controllers\ServiceSectionController;
 use App\Http\Controllers\SkillSectionController;
+use App\Models\SkillSection;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +30,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-Route::post('/contact',[ContactController::class,'store'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact');
 
 Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group(function () {
     Route::get('/', [AdminController::class, 'index']);
@@ -48,7 +50,11 @@ Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group(func
     Route::post('/about-section/{aboutSection}/update', [AboutSectionController::class, 'update'])->name('.about_section.update');
 
     Route::get('/skill-section', [SkillSectionController::class, 'index'])->name('.skill_section');
+    Route::get('/skill-section/create', [SkillSectionController::class, 'create'])->name('.skill_section.create');
+    Route::post('/skill-section/store', [SkillSectionController::class, 'store'])->name('.skill_section.store');
+    Route::get('/skill-section/{skillSection}/edit', [SkillSectionController::class, 'edit'])->name('.skill_section.edit');
     Route::post('/skill-section/{skillSection}/update', [SkillSectionController::class, 'update'])->name('.skill_section.update');
+    Route::get('skill-section/{skillSection}/destroy', [SkillSectionController::class, 'destroy'])->name('.skill_section.destroy');
 
     Route::get('/service-section', [ServiceSectionController::class, 'index'])->name('.service_section');
     Route::post('/service-section/{serviceSection}/update', [ServiceSectionController::class, 'update'])->name('.service_section.update');
@@ -56,6 +62,11 @@ Route::middleware(['auth'])->name('dashboard')->prefix('/dashboard')->group(func
     Route::get('/portfolio-section', [ProtfolioSectionController::class, 'index'])->name('.portfolio_section');
     Route::get('/contact-section', [ContactSectionController::class, 'index'])->name('.contact_section');
     Route::get('/footer', [FooterController::class, 'index'])->name('.footer');
+
+
+    Route::get('/openAi', [OpenAiController::class, 'index'])->name('.openai');
+    Route::post('/openAi/test', [OpenAiController::class, 'api'])->name('.openai.test');
+    // Route::post('/openAi/i', [OpenAiController::class, 'api'])->name('.openai.test');
 });
 
 require __DIR__ . '/auth.php';

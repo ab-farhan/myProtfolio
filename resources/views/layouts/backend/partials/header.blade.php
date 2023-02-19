@@ -12,8 +12,9 @@
     <title>Farhan Admin </title>
     <link href="{{ asset('backend') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('backend') }}/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css" />
+
     <link href="{{ asset('backend') }}/css/ruang-admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/') }}css/toastr.min.css" />
     <link href="{{ asset('backend') }}/css/custom.css" rel="stylesheet">
     @yield('css')
 </head>
